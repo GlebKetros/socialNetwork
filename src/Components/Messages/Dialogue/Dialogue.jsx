@@ -1,23 +1,15 @@
 import styles from './Dialogue.module.css'
-import MessageItem from './MessageItem/MessageItem'
+import MessageTextarea from './MessageTextarea/MessageTextarea'
+import MessagesWrapper from './MessagesWrapper/MessagesWrapper'
 
-const messagesData = [
-    {id: 1, message: 'hello'},
-    {id: 2, message: 'hello'},
-    {id: 3, message: 'How are you?'},
-    {id: 4, message: 'I\'m fine, thank you'},
-    {id: 5, message: 'Ok, let\'s go to drink beer!'},
-    {id: 6, message: 'GOOOOOOOOOOOO'},
-]
 
-const messagesComponents = messagesData.map(el => {
-    return <MessageItem messageText={el.message}/>
-})
 
-function Dialogue () {
+function Dialogue (props) {
+    
     return (
         <div className={styles.Dialogue}>
-            {messagesComponents}
+            <MessagesWrapper messagesData={props.messagesData} />
+            <MessageTextarea />
         </div>
     )
 }

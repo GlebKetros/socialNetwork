@@ -1,21 +1,32 @@
-import Post from './Post/Post'
+import React from 'react'
+import PostsWrapper from './PostsWrapper/PostsWrapper'
 import styles from './ProfileBody.module.css'
 
-function ProfileBody() {
+function ProfileBody(props) {
+    const newPostTextarea = React.createRef()
+
+    const updateNewPostText = () => {
+        props.updateNewPostText(newPostTextarea.current.value)
+    }
+
+    const addPost = (postMessage) => {
+        postMessage = newPostTextarea.current.value
+        props.addPost(postMessage)
+    } 
+    
     return (
         <div className={styles.ProfileBody}>
-
             <form className={styles.formPosts} action="">
-                <h3 className={styles.formTitle}>Write new post</h3>                
-                <textarea className={styles.textarea} name="" id="" cols="60" rows="10"></textarea>
+                <h3 className={styles.formTitle}>Write a new post</h3>                
+                <textarea onChange={updateNewPostText} value={props.newPostText} className={styles.textarea} name="" ref={newPostTextarea} ></textarea>
+                
+                <button onClick={(event) => {
+                    event.preventDefault()
+                    addPost()
+                }}>Send</button>
             </form>
 
-            <div className={styles.postsWrapper}>
-                <Post message='Always remember: "Wolf is not a lion, wolf is a wolf"' likes='5' />
-                <Post message='Always remember: "Wolf is not a dog, wolf is a wolf"' likes='14' />
-                <Post message='Always remember: "Wolf is not a zebra, wolf is a wolf"' likes='3' />
-                <Post message='Always remember: "Wolf is not an elephant, wolf is a wolf"' likes='48' />
-            </div>
+            <PostsWrapper postsData={props.postsData} />
         </div>
     )
 }

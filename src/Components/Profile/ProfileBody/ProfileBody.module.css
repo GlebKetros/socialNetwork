@@ -15,10 +15,10 @@
 
 .textarea {
     padding: 20px;
+    width: 500px;
+    resize: none;
+
+    font-family: inherit;
 
     border-radius: 10px;
-}
-
-.postsWrapper {
-    padding-top: 40px;
 }

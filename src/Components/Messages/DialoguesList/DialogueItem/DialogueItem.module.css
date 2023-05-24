@@ -29,3 +29,7 @@
     height: 2px;
     background-color: #000;
 }
+
+.activeLink {
+    color: #007bff;
+}
