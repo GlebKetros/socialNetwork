@@ -13,7 +13,7 @@ function App(props) {
             <Navigation />
             <main className='main'>
                 <Routes>
-                    <Route path='/' element={<Profile profileState={props.state.profileState} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} /> 
+                    <Route path='/' element={<Profile profileState={props.state.profileState} store={props.store} />} /> 
                     <Route path='/messages/*' element={<Messages messagesState={props.state.messagesState} />} />
                 </Routes>
             </main>

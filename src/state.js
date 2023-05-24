@@ -1,4 +1,25 @@
-import { rerender } from "./rerender"
+export const store = {
+    rerender: '',
+    updateNewPostText(newText) {
+        state.profileState.newPostText = newText
+        this.rerender(state, store)
+    },
+    addPost(postText) {
+        state.profileState.postsData.push({
+            id: 5,
+            author: 'Sergey Bandit',
+            avatar: 'https://www.meme-arsenal.com/memes/81c76701265388ce2003998848380700.jpg',
+            postText: postText,
+            likes: 0
+        })
+        console.log(state.profileState.postsData)
+        state.profileState.newPostText = ''
+        this.rerender(state, store)
+    },
+    observer(observe) {
+        this.rerender = observe        
+    }
+}
 
 const state = {
     messagesState: {
@@ -51,24 +72,6 @@ const state = {
         ],    
         newPostText: ''    
     },
-}
-
-export const updateNewPostText = (newText) => {
-    state.profileState.newPostText = newText
-    rerender(state, addPost, updateNewPostText)
-}
-
-export const addPost = (postText) => {
-    state.profileState.postsData.push({
-        id: 5,
-        author: 'Sergey Bandit',
-        avatar: 'https://www.meme-arsenal.com/memes/81c76701265388ce2003998848380700.jpg',
-        postText: postText,
-        likes: 0
-    })
-    console.log(state.profileState.postsData)
-    state.profileState.newPostText = ''
-    rerender(state, addPost, updateNewPostText)
 }
 
 export default state

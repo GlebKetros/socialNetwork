@@ -7,7 +7,7 @@ function Profile(props) {
         <section className={styles.profile}>
             <div className={styles.container}>
                 <ProfileHeader />
-                <ProfileBody postsData={props.profileState.postsData} addPost={props.addPost} updateNewPostText={props.updateNewPostText} newPostText={props.profileState.newPostText} />
+                <ProfileBody profileState={props.profileState} store={props.store} />
             </div>    
         </section>
     )
