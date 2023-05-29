@@ -1,0 +1,17 @@
+.MessageEntry {
+
+}
+
+.form {
+    display: flex;
+}
+
+.textarea {
+    width: 100%;
+    resize: none;
+}
+
+.button {
+    align-self: flex-start;
+    padding: 20px;
+}

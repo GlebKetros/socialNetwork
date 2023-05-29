@@ -13,8 +13,8 @@ function App(props) {
             <Navigation />
             <main className='main'>
                 <Routes>
-                    <Route path='/' element={<Profile profileState={props.state.profileState} store={props.store} />} /> 
-                    <Route path='/messages/*' element={<Messages messagesState={props.state.messagesState} />} />
+                    <Route path='/' element={<Profile profileState={props.state.profileState} dispatch={props.dispatch} />} /> 
+                    <Route path='/messages/*' element={<Messages messagesState={props.state.messagesState} dispatch={props.dispatch} />} />
                 </Routes>
             </main>
         </div>

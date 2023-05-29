@@ -1,18 +1,20 @@
 import React from 'react'
 import PostsWrapper from './PostsWrapper/PostsWrapper'
 import styles from './ProfileBody.module.css'
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../store'
 
 function ProfileBody(props) {
-    console.log(props)
     const newPostTextarea = React.createRef()
 
     const updateNewPostText = () => {
-        props.store.updateNewPostText(newPostTextarea.current.value)
+        const action = updateNewPostTextActionCreator(newPostTextarea.current.value)
+        props.dispatch(action)
     }
 
-    const addPost = (postMessage) => {
-        postMessage = newPostTextarea.current.value
-        props.store.addPost(postMessage)
+    const addPost = () => {
+        const action = addPostActionCreator(props.profileState.newPostText)
+        // const postMessage = props.profileState.newPostText
+        props.dispatch(action)
     } 
     
     return (

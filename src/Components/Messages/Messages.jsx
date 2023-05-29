@@ -6,7 +6,10 @@ function Messages(props) {
     return (
         <section className={styles.Messages}>
             <DialoguesList dialoguesData={props.messagesState.dialoguesData} />
-            <Dialogue messagesData={props.messagesState.messagesData} />
+            <Dialogue 
+                messagesData={props.messagesState.messagesData} 
+                newMessageText={props.messagesState.newMessageText} 
+                dispatch={props.dispatch} />
         </section>
     )
 }
