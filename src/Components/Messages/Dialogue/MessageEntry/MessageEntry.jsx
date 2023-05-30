@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './MessageEntry.module.css'
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../../../store'
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../../../redux/messagesReducer'
 
 function MessageEntry (props) {
     const messageTextarea = React.createRef()

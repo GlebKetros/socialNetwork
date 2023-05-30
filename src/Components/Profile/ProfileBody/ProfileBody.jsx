@@ -1,7 +1,7 @@
 import React from 'react'
 import PostsWrapper from './PostsWrapper/PostsWrapper'
 import styles from './ProfileBody.module.css'
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../store'
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profileReducer'
 
 function ProfileBody(props) {
     const newPostTextarea = React.createRef()
@@ -13,7 +13,6 @@ function ProfileBody(props) {
 
     const addPost = () => {
         const action = addPostActionCreator(props.profileState.newPostText)
-        // const postMessage = props.profileState.newPostText
         props.dispatch(action)
     } 
     
