@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import store from './redux/store';
+import store from './redux/reduxStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,13 +12,15 @@ const rerender = (store) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={store.state} dispatch={store.dispatch.bind(store)} />    
+                <App state={store.getState()} dispatch={store.dispatch.bind(store)} />    
             </BrowserRouter>
         </React.StrictMode>
     );
 }
 
-store.observer(rerender)
+store.subscribe(() => {
+    rerender(store)
+})
 rerender(store)
 
 // If you want to start measuring performance in your app, pass a function
