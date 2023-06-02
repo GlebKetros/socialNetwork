@@ -1,15 +1,12 @@
 import Dialogue from './Dialogue/Dialogue'
-import DialoguesList from './DialoguesList/DialoguesList'
+import DialoguesListContainer from './DialoguesList/DialoguesListContainer'
 import styles from './Messages.module.css'
 
 function Messages(props) {
     return (
         <section className={styles.Messages}>
-            <DialoguesList dialoguesData={props.messagesState.dialoguesData} />
-            <Dialogue 
-                messagesData={props.messagesState.messagesData} 
-                newMessageText={props.messagesState.newMessageText} 
-                dispatch={props.dispatch} />
+            <DialoguesListContainer store={props.store} />
+            <Dialogue store={props.store} />
         </section>
     )
 }

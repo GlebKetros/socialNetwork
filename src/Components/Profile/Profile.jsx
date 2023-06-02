@@ -1,4 +1,4 @@
-import ProfileBody from './ProfileBody/ProfileBody'
+import ProfileBodyContainer from './ProfileBody/ProfileBodyContainer'
 import ProfileHeader from './ProfileHeader/ProfileHeader'
 import styles from './Profile.module.css'
 
@@ -7,7 +7,7 @@ function Profile(props) {
         <section className={styles.profile}>
             <div className={styles.container}>
                 <ProfileHeader />
-                <ProfileBody profileState={props.profileState} dispatch={props.dispatch} />
+                <ProfileBodyContainer store={props.store} />
             </div>    
         </section>
     )

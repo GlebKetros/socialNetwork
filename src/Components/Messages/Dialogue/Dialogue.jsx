@@ -1,14 +1,14 @@
 import styles from './Dialogue.module.css'
-import MessageEntry from './MessageEntry/MessageEntry'
-import MessagesWrapper from './MessagesWrapper/MessagesWrapper'
+import MessageEntryContainer from './MessageEntry/MessageEntryContainer'
+import MessagesWrapperContainer from './MessagesWrapper/MessagesWrapperContainer'
 
 
 
 function Dialogue (props) {
     return (
         <div className={styles.Dialogue}>
-            <MessagesWrapper messagesData={props.messagesData} />
-            <MessageEntry newMessageText={props.newMessageText} dispatch={props.dispatch} />
+            <MessagesWrapperContainer store={props.store} />
+            <MessageEntryContainer store={props.store} />
         </div>
     )
 }

@@ -1,19 +1,18 @@
 import React from 'react'
 import PostsWrapper from './PostsWrapper/PostsWrapper'
 import styles from './ProfileBody.module.css'
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profileReducer'
 
 function ProfileBody(props) {
     const newPostTextarea = React.createRef()
 
     const updateNewPostText = () => {
-        const action = updateNewPostTextActionCreator(newPostTextarea.current.value)
-        props.dispatch(action)
+        const text = newPostTextarea.current.value
+        props.updateNewPostText(text)
     }
 
     const addPost = () => {
-        const action = addPostActionCreator(props.profileState.newPostText)
-        props.dispatch(action)
+        const text = props.profileState.newPostText
+        props.addPost(text)
     } 
     
     return (

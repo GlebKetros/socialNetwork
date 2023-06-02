@@ -1,18 +1,17 @@
 import React from 'react'
 import styles from './MessageEntry.module.css'
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../../../redux/messagesReducer'
 
 function MessageEntry (props) {
     const messageTextarea = React.createRef()
 
     const updateNewMessageText = () => {
-        const newMessageText = updateNewMessageTextActionCreator(messageTextarea.current.value)
-        props.dispatch(newMessageText)
+        const message = messageTextarea.current.value
+        props.updateNewMessageText(message)
     }
 
-    const sendMessage = (mesage) => {
-        const action = sendMessageActionCreator(props.newMessageText)
-        props.dispatch(action)
+    const sendMessage = () => {
+        const message = props.newMessageText
+        props.sendMessage(message)
     }
 
     return (
